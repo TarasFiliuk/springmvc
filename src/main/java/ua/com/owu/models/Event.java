@@ -8,6 +8,8 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int eventId;
 
+    private String name;
+
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     Place place;
 }

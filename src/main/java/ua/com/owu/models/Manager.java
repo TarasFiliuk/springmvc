@@ -71,7 +71,7 @@ public class Manager implements UserDetails {
         return role;
     }
 
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "managers")
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     Place place;
 
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "managers")
