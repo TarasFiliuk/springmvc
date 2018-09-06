@@ -1,6 +1,5 @@
 package ua.com.owu.models;
 
-import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,35 +11,46 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-public class User implements UserDetails {
+public class Admin implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int adminId;
     public int getId() {
-        return id;
+        return adminId;
     }
     public void setId(int id) {
-        this.id = id;
+        this.adminId = id;
     }
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "user")
-   private List<Order> orders;
+    private String email;
 
-    public List<Order> getOrders() {
-        return orders;
+    public String getEmail() {
+        return email;
     }
 
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
+    public Admin(String email, String firstName, String lastName, String password, String username) {
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.username = username;
     }
 
-    public Role getRole() {
-        return role;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    private Role role = Role.ROLE_USER;
+    private String firstName;
+    public String getName() { return firstName; }
+    public void setName(String name) { this.firstName = name; }
+
+    private String lastName;
+    public String getSurname() { return lastName; }
+    public void setSurname(String surname) { this.lastName = surname; }
+
+
+
+    private Role role = Role.ROLE_ADMIN;
     public void setRole(Role role) {
         this.role = role;
     }
@@ -73,7 +83,37 @@ public class User implements UserDetails {
         this.username = username;
     }
 
+    public Admin() {
 
+    }
+
+    public int getAdminId() {
+        return adminId;
+    }
+
+    public void setAdminId(int adminId) {
+        this.adminId = adminId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Role getRole() {
+        return role;
+    }
 
     private boolean isAccountNonExpired = true;
     @Override
@@ -115,3 +155,5 @@ public class User implements UserDetails {
         isEnabled = enabled;
     }
 }
+
+

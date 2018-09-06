@@ -3,6 +3,7 @@ package ua.com.owu.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -17,6 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 @Configuration
+@ComponentScan("ua.com.owu.*")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -45,9 +47,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                                 AuthenticationProvider provider) throws Exception {
 
         inMemoryConfigurer()
-                .withUser("a")
-                .password("{noop}a")
-                .authorities("ADMIN")
+                .withUser("admin")
+                .password("{noop}admin")
+                .authorities("ROLE_ADMIN")
                 .and()
                 .configure(auth);
         auth.authenticationProvider(provider);
@@ -62,6 +64,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/user/**").hasRole("USER")
                 .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/manager/**").hasRole("MANAGER")
                 .and()
                 .formLogin()
                 .loginPage("/login")
