@@ -7,13 +7,6 @@
           <element id="module-output" name="springmvc" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Maven: joda-time:joda-time:2.10" />
-          <element id="library" level="project" name="Maven: org.jadira.usertype:usertype.core:3.1.0.CR1" />
-          <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:4.1.7.Final" />
-          <element id="library" level="project" name="Maven: org.jboss.spec.javax.transaction:jboss-transaction-api_1.1_spec:1.0.0.Final" />
-          <element id="library" level="project" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final" />
-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.2" />
-          <element id="library" level="project" name="Maven: org.jadira.usertype:usertype.spi:3.1.0.CR1" />
           <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
           <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:3.0.1" />
           <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
@@ -33,6 +26,7 @@
           <element id="library" level="project" name="Maven: org.jboss.spec.javax.interceptor:jboss-interceptors-api_1.1_spec:1.0.0.Beta1" />
           <element id="library" level="project" name="Maven: javax.annotation:jsr250-api:1.0" />
           <element id="library" level="project" name="Maven: com.zaxxer:HikariCP:2.6.1" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.22" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.3.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.3.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.3.3.RELEASE" />
