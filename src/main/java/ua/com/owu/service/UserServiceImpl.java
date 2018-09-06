@@ -5,36 +5,36 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ua.com.owu.dao.PersonDAO;
-import ua.com.owu.models.Person;
+import ua.com.owu.dao.UserDAO;
+import ua.com.owu.models.User;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @Transactional
-public class PersonServiceImpl implements PersonService{
+public class UserServiceImpl implements UserService {
 
     @Autowired
-    PersonDAO personDAO;
+    UserDAO userDAO;
 
-    public List<Person> findAll() {
-        return personDAO.findAll();
+    public List<User> findAll() {
+        return userDAO.findAll();
     }
 
     @Override
-    public Optional<Person> findById(int id) {
-        return Optional.ofNullable(personDAO.findOne(id));
+    public Optional<User> findById(int id) {
+        return Optional.ofNullable(userDAO.findOne(id));
     }
 
-    public void save(Person person) {
-        personDAO.save(person);
+    public void save(User user) {
+        userDAO.save(user);
 
     }
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        Person byUsername = personDAO.findByUsername(s);
+        User byUsername = userDAO.findByUsername(s);
         return byUsername;
     }
 }
