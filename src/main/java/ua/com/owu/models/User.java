@@ -14,7 +14,6 @@ import java.util.Set;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(exclude = "books")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,15 +25,6 @@ public class User implements UserDetails {
         this.id = id;
     }
 
-    @OneToMany(
-            fetch = FetchType.LAZY,
-            mappedBy = "people"
-    )
-
-    private List<Books> books;
-    public List<Books> getBooks() {
-        return books;
-    }
 
     private Role role = Role.ROLE_USER;
     public void setRole(Role role) {
