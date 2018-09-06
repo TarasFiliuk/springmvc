@@ -28,13 +28,6 @@ public class Admin implements UserDetails {
         return email;
     }
 
-    public Admin(String email, String firstName, String lastName, String password, String username) {
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-        this.username = username;
-    }
 
     public void setEmail(String email) {
         this.email = email;

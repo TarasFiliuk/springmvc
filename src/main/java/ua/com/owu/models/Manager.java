@@ -71,32 +71,11 @@ public class Manager implements UserDetails {
         return role;
     }
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "managers")
     Place place;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "managers")
     List<Order> orders;
-
-    public Manager() {
-    }
-
-    public Manager(String firstName, String lastName, String password, String username, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-        this.username = username;
-        this.email = email;
-    }
-
-    public Manager(String email, Place place, List<Order> orders, String firstName, String lastName, String password, String username) {
-        this.email = email;
-        this.place = place;
-        this.orders = orders;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-        this.username = username;
-    }
 
     private String firstName;
 

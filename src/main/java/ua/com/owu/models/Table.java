@@ -9,10 +9,10 @@ public class Table {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int tableId;
     private int capacity;/*кількість людей*/
-    @ManyToOne
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "table")
     List<Order> orders;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     Place place;
 
     public Table() {

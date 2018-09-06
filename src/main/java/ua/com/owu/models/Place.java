@@ -12,35 +12,16 @@ public class Place {
     private String adress;
     private String city;
     private String specification;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     List<Manager> managers;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "place")
     List<Table> tables;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY ,mappedBy = "place")
     List<Event> events;
 
 
-    public Place() {
-    }
-
-    public Place(String name, String adress, String city, String specification) {
-        this.name = name;
-        this.adress = adress;
-        this.city = city;
-        this.specification = specification;
-    }
-
-    public Place(String name, String adress, String city, String specification, List<Manager> managers, List<Table> tables, List<Event> events) {
-        this.name = name;
-        this.adress = adress;
-        this.city = city;
-        this.specification = specification;
-        this.managers = managers;
-        this.tables = tables;
-        this.events = events;
-    }
 
     public int getPlaceId() {
         return placeId;

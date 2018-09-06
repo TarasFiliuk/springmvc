@@ -26,7 +26,7 @@ public class DataConfig {
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/mvcstud?createDatabaseIfNotExist=true");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/projectDB?createDatabaseIfNotExist=true");
         dataSource.setUsername("root");
         dataSource.setPassword("root");
         return dataSource;
@@ -47,7 +47,7 @@ public class DataConfig {
         factoryBean.setJpaVendorAdapter(vendorAdapter());
         factoryBean.setPackagesToScan("ua.com.owu.models");
         Properties properties = new Properties();
-        properties.put("hibernate.hbm2ddl.auto", "create");
+        properties.put("hibernate.hbm2ddl.auto", "update");
         factoryBean.setJpaProperties(properties);
         return factoryBean;
     }
