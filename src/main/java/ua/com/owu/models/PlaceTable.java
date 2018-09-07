@@ -4,27 +4,27 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Table {
+public class PlaceTable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int tableId;
     private int capacity;/*кількість людей*/
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "table")
-    List<Order> orders;
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "placeTable")
+    List<UserOrder> userOrders;
 
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     Place place;
 
-    public Table() {
+    public PlaceTable() {
     }
 
-    public Table(int capacity) {
+    public PlaceTable(int capacity) {
         this.capacity = capacity;
     }
 
-    public Table(int capacity, List<Order> orders, Place place) {
+    public PlaceTable(int capacity, List<UserOrder> userOrders, Place place) {
         this.capacity = capacity;
-        this.orders = orders;
+        this.userOrders = userOrders;
         this.place = place;
     }
 
@@ -46,7 +46,7 @@ public class Table {
 
     @Override
     public String toString() {
-        return "Table{" +
+        return "PlaceTable{" +
                 "tableId=" + tableId +
                 ", capacity=" + capacity +
                 '}';

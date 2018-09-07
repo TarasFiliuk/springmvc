@@ -16,7 +16,7 @@ public class Place {
     List<Manager> managers;
 
     @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "place")
-    List<Table> tables;
+    List<PlaceTable> placeTables;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY ,mappedBy = "place")
     List<Event> events;
@@ -71,12 +71,12 @@ public class Place {
         this.managers = managers;
     }
 
-    public List<Table> getTables() {
-        return tables;
+    public List<PlaceTable> getPlaceTables() {
+        return placeTables;
     }
 
-    public void setTables(List<Table> tables) {
-        this.tables = tables;
+    public void setPlaceTables(List<PlaceTable> placeTables) {
+        this.placeTables = placeTables;
     }
 
     public List<Event> getEvents() {

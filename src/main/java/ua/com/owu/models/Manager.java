@@ -43,12 +43,12 @@ public class Manager implements UserDetails {
         this.place = place;
     }
 
-    public List<Order> getOrders() {
-        return orders;
+    public List<UserOrder> getUserOrders() {
+        return userOrders;
     }
 
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
+    public void setUserOrders(List<UserOrder> userOrders) {
+        this.userOrders = userOrders;
     }
 
     public String getFirstName() {
@@ -75,7 +75,7 @@ public class Manager implements UserDetails {
     Place place;
 
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "managers")
-    List<Order> orders;
+    List<UserOrder> userOrders;
 
     private String firstName;
 
